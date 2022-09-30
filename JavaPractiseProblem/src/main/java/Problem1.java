@@ -2,46 +2,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Problem1 {
     static List<Integer> leaders(int n, int[] A){
+        //list for storing ans
         List<Integer> ans = new ArrayList<>();
-        boolean isans = true;
-        //O(n^2)
-//        for (int i = 0; i < n-1; i++) {
-//            isans = true;
-//            for (int j = i+1; j < n; j++) {
-//                if(A[i] < A[j]) {
-//                    isans = false;
-//                }
-//            }
-//            if(isans){
-//                ans.add(A[i]);
-//            }
-//        }
-//        ans.add(A[n-1]);
-
-        //O(n)
-//        int[] dp = new int[n];
-//        dp[n-1] = A[n-1];
-//        for (int i = n-2; i >= 0; i--) {
-//            if(A[i] > dp[i+1]){
-//                dp[i] = A[i];
-//            }
-//            else{
-//                dp[i] = dp[i+1];
-//            }
-//        }
-//        for (int i = 0; i < n; i++) {
-//            if(dp[i]!=dp[i+1]){
-//                ans.add(dp[i]);
-//            }
-//        }
-//        System.out.println(ans);
-
-        //
+        //curr will find largest element from array end
         int curr = A[n-1];
         for(int i=n-1;i>=0;i--){
+            //if element is greater than previous largest we need to add it in to list
             if(curr <= A[i]){
                 ans.add(0,A[i]);
                 curr = A[i];
@@ -65,7 +35,5 @@ public class Problem1 {
         }
         List<Integer> ans = leaders(n,A);
         System.out.println(ans);
-//        int n = 6;
-//        int[] A = {16,17,4,3,5,2};
     }
 }

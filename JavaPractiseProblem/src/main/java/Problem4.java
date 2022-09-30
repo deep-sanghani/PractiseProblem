@@ -2,12 +2,15 @@ import java.util.*;
 
 public class Problem4 {
     static int minswaps(List<Integer> arr){
+        //nums will store all the elements in arr in sorted form
         List<Integer> nums = new ArrayList<>();
         nums.addAll(arr);
         int n = arr.size();
+        //ans will store number of swaps required
         int ans = 0;
-        Collections.sort(arr);
+        Collections.sort(nums);
         for (int i = 0; i < n/2; i++) {
+            //if element in sorted array is not equal to given array then ans will increment
             if(arr.get(i)!=nums.get(i)){
                 ans++;
             }
